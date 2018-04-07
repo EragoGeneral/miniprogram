@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/calc/slider",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/databind/databind",
+    "pages/list/list",
+    "pages/view/view",
+    "pages/button/button",
+    "pages/calc/calc"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/databind/databind",
+        "text": "数据绑定"
+      }
+    ]
+  }
+}

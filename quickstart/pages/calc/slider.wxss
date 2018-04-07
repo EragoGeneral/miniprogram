@@ -1,0 +1,12 @@
+/* pages/calc/slider.wxss */
+.content{
+  margin: 40rpx;
+}
+
+.content button{
+  width: 80%;
+}
+
+view, button, slider{
+  margin: 40rpx 0;
+}

@@ -30,6 +30,18 @@ Page({
 
   clickButton:function(e){
     var data = this.data.result;
+    if(e.target.id >= 'num_0' && e.target.id <= 'num_9'){
+      data += e.target.id.split("_")[1];
+      if(this.data.result == '0'){
+        data = e.target.id.split("_")[1];
+      }
+    }else{
+      console.log(e.target.id);
+    }
+
+    this.setData({
+      result:data
+    });
   },
 
   /**

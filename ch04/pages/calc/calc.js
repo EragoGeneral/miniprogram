@@ -30,17 +30,64 @@ Page({
 
   clickButton:function(e){
     var data = this.data.result;
+
+    var tmp = this.data.temp;
+    var lastoper1 = this.data.lastoper;
+    var noNumFlag = this.data.flag;
+    
     if(e.target.id >= 'num_0' && e.target.id <= 'num_9'){
       data += e.target.id.split("_")[1];
-      if(this.data.result == '0'){
+      if(this.data.result == '0' || noNumFlag){
         data = e.target.id.split("_")[1];
       }
+      noNumFlag = false;
     }else{
+      noNumFlag = true;
       console.log(e.target.id);
+      if(e.target.id == "dot"){
+        if(data.toString().indexOf(".") == -1){
+          data += ".";
+        }
+      }else if(e.target.id == "clear"){
+        data = 0;
+        tmp = 0;
+        lastoper1 = "+";
+      }else if(e.target.id == "negative"){
+        data = -1*data;
+      }else if(e.target.id == "back"){
+        if(data.toString().length > 1){
+          data = data.substr(0, data.toString().length - 1);
+        }else{
+          data = 0;
+        }
+      }else if(e.target.id == "div"){
+        data = calculate(tmp, lastoper1, data);
+        tmp = data;
+        lastoper1 = "/";
+      } else if (e.target.id == "mul") {
+        data = calculate(tmp, lastoper1, data);
+        tmp = data;
+        lastoper1 = "*";
+      } else if (e.target.id == "add") {
+        data = calculate(tmp, lastoper1, data);
+        tmp = data;
+        lastoper1 = "+";
+      } else if (e.target.id == "sub") {
+        data = calculate(tmp, lastoper1, data);
+        tmp = data;
+        lastoper1 = "-";
+      } else if (e.target.id == "equ") {
+        data = calculate(tmp, lastoper1, data);
+        tmp = data;
+        lastoper1 = "+";
+      }      
     }
 
     this.setData({
-      result:data
+      result:data,
+      lastoper:lastoper1,
+      temp:tmp,
+      flag:noNumFlag
     });
   },
 
@@ -99,4 +146,30 @@ Page({
   onShareAppMessage: function () {
   
   }
-})
+});
+
+var calculate = function (data1, oper, data2) {
+  var data;
+  data1 = parseFloat(data1);
+  data2 = parseFloat(data2);
+  switch (oper) {
+    case "+":
+      data = data1 + data2;
+      break;
+    case "-":
+      data = data1 - data2;
+      break;
+    case "*":
+      data = data1 * data2;
+      break;
+    case "/":
+      if (data2 !== 0) {
+        data = data1 / data2;
+      } else {
+        data = 0;
+      }
+      break;
+  }
+
+  return data;
+}

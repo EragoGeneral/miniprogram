@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/switch/switch",
     "pages/calc/slider",
     "pages/index/index",
     "pages/logs/logs",

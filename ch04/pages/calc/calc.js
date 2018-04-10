@@ -25,7 +25,9 @@ Page({
     id17:"negative",
     id18:"num_0",
     id19:"dot",
-    id20:"equ"
+    id20:"equ",
+    record:true,
+    expr:""
   },
 
   clickButton:function(e){
@@ -34,7 +36,8 @@ Page({
     var tmp = this.data.temp;
     var lastoper1 = this.data.lastoper;
     var noNumFlag = this.data.flag;
-    
+    var expr1 = this.data.expr;
+
     if(e.target.id >= 'num_0' && e.target.id <= 'num_9'){
       data += e.target.id.split("_")[1];
       if(this.data.result == '0' || noNumFlag){
@@ -49,6 +52,11 @@ Page({
           data += ".";
         }
       }else if(e.target.id == "clear"){
+        expr1 = expr1.substr(0, expr1.length-1) + "=" + tmp;
+        if(this.data.record){
+          wx.setStorageSync("expr", expr1);
+        }
+        expr1 = "";
         data = 0;
         tmp = 0;
         lastoper1 = "+";
@@ -61,25 +69,39 @@ Page({
           data = 0;
         }
       }else if(e.target.id == "div"){
+        expr1 += data.toString() + "÷";
         data = calculate(tmp, lastoper1, data);
         tmp = data;
         lastoper1 = "/";
       } else if (e.target.id == "mul") {
+        expr1 += data.toString() + "×";
         data = calculate(tmp, lastoper1, data);
         tmp = data;
         lastoper1 = "*";
       } else if (e.target.id == "add") {
+        expr1 += data.toString() + "+";
         data = calculate(tmp, lastoper1, data);
         tmp = data;
         lastoper1 = "+";
       } else if (e.target.id == "sub") {
+        expr1 += data.toString() + "－";
         data = calculate(tmp, lastoper1, data);
         tmp = data;
         lastoper1 = "-";
       } else if (e.target.id == "equ") {
+        expr1 += data.toString();
         data = calculate(tmp, lastoper1, data);
+        expr1 += "=" + data;
+        if(this.data.record){
+          wx.setStorageSync("expr", expr1);
+        }
+        expr1 = "";
         tmp = data;
         lastoper1 = "+";
+      }else if(e.target.id == "history"){
+        wx.navigateTo({
+          url: '../history/history',
+        })
       }      
     }
 
@@ -87,7 +109,15 @@ Page({
       result:data,
       lastoper:lastoper1,
       temp:tmp,
-      flag:noNumFlag
+      flag:noNumFlag,
+      expr:expr1
+    });
+  },
+
+  RecordHistory:function(e){
+    console.log(e);
+    this.setData({
+      record: e.detail.value
     });
   },
 

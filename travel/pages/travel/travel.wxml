@@ -38,6 +38,11 @@
       </picker>
     </view>
 
+    <view class='section'>
+      <view class='section__title'>其他建议</view>
+      <textarea name='suggest' style='height:100rpx;' placehold='建议' value='{{suggest}}'/>
+    </view>
+    
     <view class='btn-area'>
       <button form-type='submit' type='primary'>提交</button>
       <button form-type='reset'>重置</button>

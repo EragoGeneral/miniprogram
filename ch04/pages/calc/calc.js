@@ -5,6 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    temp:"0",
+    lastoper:"+",
+    flag:true,
     result:"0",
     id1:"history",
     id2:"clear",
@@ -53,9 +56,10 @@ Page({
         }
       }else if(e.target.id == "clear"){
         expr1 = expr1.substr(0, expr1.length-1) + "=" + tmp;
-        if(this.data.record){
-          wx.setStorageSync("expr", expr1);
-        }
+        // if(this.data.record){
+        //   wx.setStorageSync("expr", expr1);
+        // }
+        saveExprs(expr1);
         expr1 = "";
         data = 0;
         tmp = 0;
@@ -72,12 +76,12 @@ Page({
         expr1 += data.toString() + "÷";
         data = calculate(tmp, lastoper1, data);
         tmp = data;
-        lastoper1 = "/";
+        lastoper1 = "÷";
       } else if (e.target.id == "mul") {
         expr1 += data.toString() + "×";
         data = calculate(tmp, lastoper1, data);
         tmp = data;
-        lastoper1 = "*";
+        lastoper1 = "×";
       } else if (e.target.id == "add") {
         expr1 += data.toString() + "+";
         data = calculate(tmp, lastoper1, data);
@@ -92,11 +96,12 @@ Page({
         expr1 += data.toString();
         data = calculate(tmp, lastoper1, data);
         expr1 += "=" + data;
-        if(this.data.record){
-          wx.setStorageSync("expr", expr1);
-        }
+        // if(this.data.record){
+        //   wx.setStorageSync("expr", expr1);
+        // }
+        saveExprs(expr1);
         expr1 = "";
-        tmp = data;
+        tmp = 0;
         lastoper1 = "+";
       }else if(e.target.id == "history"){
         wx.navigateTo({
@@ -189,10 +194,10 @@ var calculate = function (data1, oper, data2) {
     case "-":
       data = data1 - data2;
       break;
-    case "*":
+    case "×":
       data = data1 * data2;
       break;
-    case "/":
+    case "÷":
       if (data2 !== 0) {
         data = data1 / data2;
       } else {
@@ -202,4 +207,10 @@ var calculate = function (data1, oper, data2) {
   }
 
   return data;
+}
+
+var saveExprs = function(expr){
+  var exprs = wx.getStorageSync('exprs')||[];
+  exprs.unshift(expr);
+  wx.setStorageSync('exprs', exprs);
 }

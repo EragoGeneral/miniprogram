@@ -1,21 +1,43 @@
-// pages/history/history.js
+// pages/picker/picker.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    expr:"历史记录"
+    countries:['中国','美国','巴西','日本','英国','法国','意大利'],
+    index:2,
+    date:'2016-09-01',
+    time:'12:01'
+  },
+
+  bindPickerChange:function(e){
+    console.log('picker 发送选择改变');
+    console.log(e.detail.value);
+    this.setData({
+      index:e.detail.value
+    });
+  },
+  bindDateChange:function(e){
+    console.log('日期发生改变');
+    console.log(e.detail.value);
+    this.setData({
+      date:e.detail.value
+    });
+  },
+  bindTimeChange:function(e){
+    console.log('时间发生改变');
+    console.log(e.detail.value);
+    this.setData({
+      time:e.detail.value
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      // expr: wx.getStorageSync("expr");
-      exprs:wx.getStorageSync('exprs') || []
-    });
+  
   },
 
   /**

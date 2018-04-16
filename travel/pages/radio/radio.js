@@ -1,21 +1,28 @@
-// pages/history/history.js
+// pages/radio/radio.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    expr:"历史记录"
+    items:[
+      {name: 'Europe', value:'欧洲'},
+      {name: 'America', value: '美洲', checked:'true'},
+      {name: 'Africa', value:'非洲'},
+      {name: 'SoutheastAsia', value: '东南亚' },
+      {name: 'other', value: '其他' }
+    ]
+  },
+
+  radioChange:function(e){
+    console.log(e.detail.value);
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      // expr: wx.getStorageSync("expr");
-      exprs:wx.getStorageSync('exprs') || []
-    });
+  
   },
 
   /**

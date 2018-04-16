@@ -1,21 +1,50 @@
-// pages/history/history.js
+// pages/travel/travel.js
 Page({
 
   /**
-   * 页面的初始数据
+   * 页面的初始数据          
    */
   data: {
-    expr:"历史记录"
+    regions:[
+      { name: 'CHN', value: '中国', checked: 'true'},
+      { name: 'USA', value: '美国' },
+      { name: 'BRA', value: '巴西' },
+      { name: 'ENG', value: '英国' },
+      { name: 'TUR', value: '法国' }
+    ],
+    time: '8:00',
+    date: '2016-11-1',
+    suggest:''
+  },
+
+  formSubmit:function(e){
+    console.log('提交表单');
+    console.log(e.detail.value);
+  },
+
+  formReset:function(e){
+    console.log('form 发生了reset事件');
+  },
+
+  bindDateChange:function(e){
+    console.log(e.detail.value);
+    this.setData({
+      date:e.detail.value
+    });
+  },
+
+  bindTimeChange:function(e){
+    console.log(e.detail.value);
+    this.setData({
+      time:e.detail.value
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      // expr: wx.getStorageSync("expr");
-      exprs:wx.getStorageSync('exprs') || []
-    });
+  
   },
 
   /**

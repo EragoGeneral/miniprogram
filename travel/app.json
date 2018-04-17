@@ -1,12 +1,15 @@
 {
   "pages": [
+    "pages/action-sheet/action-sheet",
+    "pages/modal/modal",
+    "pages/showtoast/showtoast",
+    "pages/toast/toast",
     "pages/travel/travel",
     "pages/loading/loading",
     "pages/logs/logs",
     "pages/swiper/swiper",
     "pages/picker/picker",
-    "pages/radio/radio",
-    "pages/toast/toast"
+    "pages/radio/radio"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,2 +1,23 @@
 <!--pages/toast/toast.wxml-->
-<text>pages/toast/toast.wxml</text>
+<view class='page'>
+  <view class='page__hd'>
+    <text class='page__title'>toast 提示</text>
+  </view>
+  <view class='page__hd'>
+    <view class='btn-area'>
+      <view class='body-view'>
+        <toast hidden='{{hidden}}' bindchange='toast1Change'>
+          默认提示信息， 1.5秒关闭
+        </toast>
+        <button type='default' bindtap='toast1Tap'>默认toast</button>
+      </view>
+
+      <view class='body-view'>
+        <toast hidden='{{hidden2}}' duration='5000' bindchange='toast2Change'>
+          提示信息， 5秒后关闭
+        </toast>
+        <button type='default' bindtap='toast2Tap'>5秒关闭toast</button>
+      </view>
+    </view>
+  </view>
+</view>

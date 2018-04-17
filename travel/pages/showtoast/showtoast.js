@@ -1,37 +1,46 @@
-// pages/toast/toast.js
+// pages/showtoast/showtoast.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    hidden: true,
-    hidden2:true
+  
   },
 
-  toast1Change:function(){
-    this.setData({
-      hidden: true
-    });
-    console.log("第1个toast组件的 change 事件， 这里可进行其他操作");
-  },
-
-  toast2Change: function () {
-    this.setData({
-      hidden2: true
-    });
-    console.log("第2个toast组件的 change 事件， 这里可进行其他操作");
-  },
-
-  toast1Tap: function(){
-    this.setData({
-      hidden: false
+  showtoast1Tap:function(){
+    wx.showToast({
+      title: '默认1.5 秒关闭的loading消息提示框',
+      icon: 'loading',
+      success: function(){
+        console.log('success 回调，可在这里编写其他代码');
+      },
+      complete: function(){
+        console.log('complete 回调，可在这里编写其他代码');
+      }
     });
   },
 
-  toast2Tap: function () {
-    this.setData({
-      hidden2: false
+  showtoast2Tap: function () {
+    wx.showToast({
+      title: '5秒关闭的loading消息提示框',
+      icon: 'loading',
+      duration: 5000
+    });
+  },
+
+  showtoast3Tap: function () {
+    wx.showToast({
+      title: '默认1.5 秒关闭的toast消息提示框',
+      icon: 'success'
+    });
+  },
+
+  showtoast4Tap: function () {
+    wx.showToast({
+      title: '5 秒关闭的toast消息提示框',
+      icon: 'success',
+      duration: 5000
     });
   },
 

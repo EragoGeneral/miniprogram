@@ -38,9 +38,20 @@
       </picker>
     </view>
 
+    <view class='section'>
+      <view class='section__title'>其他建议</view>
+      <textarea name='suggest' style='height:100rpx;' placeholder='建议' />
+    </view>
+
     <view class='btn-area'>
       <button form-type='submit' type='primary'>提交</button>
       <button form-type='reset'>重置</button>
     </view>
   </form>
 </view>
+<loading hidden='{{hidden}}'>
+  加载中。。。
+</loading>
+<loading hidden='{{hidden2}}'>
+  提交数据。。。
+</loading>

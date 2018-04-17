@@ -1,10 +1,12 @@
 {
-  "pages": [    
+  "pages": [
     "pages/travel/travel",
+    "pages/loading/loading",
+    "pages/logs/logs",
+    "pages/swiper/swiper",
     "pages/picker/picker",
     "pages/radio/radio",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/toast/toast"
   ],
   "window": {
     "backgroundTextStyle": "light",

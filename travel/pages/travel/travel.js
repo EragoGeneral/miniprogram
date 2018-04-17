@@ -14,10 +14,23 @@ Page({
     ],
     time: '8:00',
     date: '2016-11-1',
-    suggest:''
+    suggest:'',
+    hidden: false,
+    hidden2: true
   },
 
   formSubmit:function(e){
+    this.setData({
+      hidden2: false
+    });
+
+    var self = this;
+    setTimeout(function(){
+      self.setData({
+        hidden2: true
+      });
+    }, 2000);
+
     console.log('提交表单');
     console.log(e.detail.value);
   },
@@ -58,7 +71,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var self = this;
+    setTimeout(function(){
+      self.setData({
+        hidden: true
+      });
+    }, 1000); 
   },
 
   /**

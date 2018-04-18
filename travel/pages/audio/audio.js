@@ -16,6 +16,19 @@ Page({
     }
   },
 
+  audioPlay: function(e){
+    this.adContr.play();
+  },
+  audioPause: function(e){
+    this.adContr.pause();
+  },
+  audio20: function(e){
+    this.adContr.seek(20);
+  },
+  audioStart: function(e){
+    this.adContr.seek(0);
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -27,7 +40,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.adContr = wx.createAudioContext('audio1');
   },
 
   /**

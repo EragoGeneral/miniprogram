@@ -9,5 +9,12 @@
         name='{{current.name}}' author='{{current.author}}' action='{{audioAction}}' controls>
       </audio>
     </view>
+
+    <view class='btn-area'>
+      <button type='primary' bindtap='audioPlay' >播放</button>
+      <button type='primary' bindtap='audioPause' >暂停</button>
+      <button type='primary' bindtap='audio20' >设置当前播放时间为20秒</button>
+      <button type='primary' bindtap='audioStart' >回到开头</button>
+    </view>
   </view>
 </view>

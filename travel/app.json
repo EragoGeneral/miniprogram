@@ -1,10 +1,18 @@
 {
-  "pages": [    
+  "pages": [
+    "pages/video/video",
+    "pages/audioapi/audioapi",
+    "pages/audio/audio",
+    "pages/action-sheet/action-sheet",
+    "pages/modal/modal",
+    "pages/showtoast/showtoast",
+    "pages/toast/toast",
     "pages/travel/travel",
+    "pages/loading/loading",
+    "pages/logs/logs",
+    "pages/swiper/swiper",
     "pages/picker/picker",
-    "pages/radio/radio",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/radio/radio"
   ],
   "window": {
     "backgroundTextStyle": "light",

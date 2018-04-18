@@ -1,56 +1,72 @@
-// pages/travel/travel.js
+// pages/modal/modal.js
 Page({
 
   /**
-   * 页面的初始数据          
+   * 页面的初始数据
    */
   data: {
-    regions:[
-      { name: 'CHN', value: '中国', checked: 'true'},
+    modalHidden: true,
+    modalHidden2: true,
+    regions: [
+      { name: 'CHN', value: '中国', checked: 'true' },
       { name: 'USA', value: '美国' },
       { name: 'BRA', value: '巴西' },
       { name: 'ENG', value: '英国' },
       { name: 'TUR', value: '法国' }
     ],
-    time: '8:00',
-    date: '2016-11-1',
-    suggest:'',
-    hidden: false,
-    hidden2: true
+    date: '2016-11-1'
   },
 
-  formSubmit:function(e){
+  modalTap: function(e){
     this.setData({
-      hidden2: false
-    });
-
-    var self = this;
-    setTimeout(function(){
-      self.setData({
-        hidden2: true
-      });
-    }, 2000);
-
-    console.log('提交表单');
-    console.log(e.detail.value);
-  },
-
-  formReset:function(e){
-    console.log('form 发生了reset事件');
-  },
-
-  bindDateChange:function(e){
-    console.log(e.detail.value);
-    this.setData({
-      date:e.detail.value
+      modalHidden:false
     });
   },
 
-  bindTimeChange:function(e){
+  modalConfirm: function(e){
+    this.setData({
+      modalHidden: true
+    });
+    console.log(e);
+  },
+
+  modalCancel: function(e) {
+    this.setData({
+      modalHidden: true
+    });
+    console.log(e);
+  },
+
+  modalTap2: function (e) {
+    this.setData({
+      modalHidden2: false
+    });
+  },
+
+  modalChange2:function(e){
+    this.setData({
+      modalHidden2: true
+    });
+    console.log(e);
+  },
+
+  bindDateChange: function (e) {
     console.log(e.detail.value);
     this.setData({
-      time:e.detail.value
+      date: e.detail.value
     });
+  },
+
+  modalTap3:function(e){
+    wx.showModal({
+      title: '提示',
+      content: '这是使用API显示的弹出框',
+      success: function(res){
+        if(res.confirm){
+          console.log('用户点击确定');
+        }
+      }
+    })
   },
 
   /**
@@ -71,12 +87,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var self = this;
-    setTimeout(function(){
-      self.setData({
-        hidden: true
-      });
-    }, 1000); 
+  
   },
 
   /**

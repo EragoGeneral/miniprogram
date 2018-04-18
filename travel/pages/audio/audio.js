@@ -23,7 +23,7 @@ Page({
     this.adContr.pause();
   },
   audio20: function(e){
-    this.adContr.seek(20);
+    this.adContr.seek(60);
   },
   audioStart: function(e){
     this.adContr.seek(0);

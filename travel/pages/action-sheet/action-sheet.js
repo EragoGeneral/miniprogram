@@ -13,6 +13,24 @@ var pageObject = {
     this.setData({
       actionSheetHidden:true
     });
+  },
+  actionSheetTap2:function(e){
+    wx.showActionSheet({
+      itemList: items,
+      success:function(res){
+        console.log("success");
+        console.log(res);
+        if(!res.cancel){
+          console.log(res.tapIndex);
+        }else{
+          console.log("cancel");
+        }
+      },
+      complete:function(e){
+        console.log("complete");
+        console.log(e);
+      }
+    })   
   }
 }
 

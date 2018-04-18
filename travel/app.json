@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/audioapi/audioapi",
     "pages/audio/audio",
     "pages/action-sheet/action-sheet",
     "pages/modal/modal",

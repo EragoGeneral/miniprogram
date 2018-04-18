@@ -1,0 +1,15 @@
+<!--pages/audioapi/audioapi.wxml-->
+<view class='page'>
+  <view class='page__hd'>
+    <text class='page__title'>audio API 音频</text>
+  </view>
+  <view class='page__hd'>
+    <view class='btn-area'>
+      <button type='primary' bindtap='tapPlay'>播放</button>
+      <button type='primary' bindtap='tapPause'>暂停</button>
+      <button type='primary' bindtap='tapSeek'>设置播放进度</button>
+      <button type='primary' bindtap='tapStop'>停止播放</button>
+      <button type='primary' bindtap='tapGetPlayState'>获取播放状态</button>
+    </view>
+  </view>
+</view>

@@ -11,8 +11,8 @@ Page({
   getweixinTap:function(){
     var self = this;
     wx.request({
-      //url: 'https://test79.ubtrobot.com/operation-rest/awards/list/1437',
-      url: 'https://mp.weixin.qq.com',
+      url: 'https://test79.ubtrobot.com/operation-rest/awards/list/1437',
+      //url: 'https://mp.weixin.qq.com',
       data:{
 
       },
@@ -21,16 +21,16 @@ Page({
       },
       success:function(res){
         console.log(res);
-        /*var content = '';
+        var content = '';
         for(var i=0; i<res.data.length; i++){
           content+=res.data[i].rewardsName+',';
         }
         self.setData({
           html: content
-        })*/
-        self.setData({
-          html: res.data
         })
+        /*self.setData({
+          html: res.data
+        })*/
       }
     })
   },

@@ -40,7 +40,7 @@
 
     <view class='section'>
       <view class='section__title'>其他建议</view>
-      <textarea name='suggest' style='height:100rpx;' placeholder='建议' />
+      <textarea name='suggest' style='height:100rpx;' placehold='建议' value='{{suggest}}'/>
     </view>
 
     <view class='btn-area'>

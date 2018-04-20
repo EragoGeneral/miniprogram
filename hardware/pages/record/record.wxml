@@ -1,0 +1,14 @@
+<!--pages/record/record.wxml-->
+<view class='content'>
+  <view class='page__hd'>
+    <text class='page__title'>录音</text>
+  </view>
+
+  <view class='section'>
+    <button type='primary' bindtap='startTap'>开始录音</button>
+    <button type='primary' bindtap='endTap'>停止录音</button>
+    <button type='primary' bindtap='playTap'>播放录音</button>
+  </view>
+
+  <view class='section'>{{formatRecordTime}}</view>
+</view>

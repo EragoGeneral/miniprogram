@@ -1,0 +1,16 @@
+<!--pages/photo/photo.wxml-->
+<view class='content'>
+  <view class='page__hd'>
+    <text class='page__title'>选择照片</text>
+  </view>
+
+  <view class='section'>
+    <button type='primary' bindtap='choosePhotoTap1'>选择照片</button>
+    <button type='primary' bindtap='choosePhotoTap2'>拍照</button>
+    <button type='primary' bindtap='choosePhotoTap3'>选择照片/拍照</button>
+  </view>
+
+  <view class='section' wx:for='{{sources}}' wx:key='{{index}}'>
+    <image src='{{item}}' />
+  </view>
+</view>

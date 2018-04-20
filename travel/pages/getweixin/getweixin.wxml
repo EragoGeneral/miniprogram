@@ -1,0 +1,10 @@
+<!--pages/getweixin/getweixin.wxml-->
+<view class='container'>
+  <view class='btn-area'>
+    <button type='primary' bindtap='getweixinTap'>get html data</button>
+  </view>
+  <view class='wx_html'>
+    <textarea maxlength='0'>{{html}}
+    </textarea>
+  </view>
+</view>

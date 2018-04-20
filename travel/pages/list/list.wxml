@@ -1,0 +1,35 @@
+<!--pages/list/list.wxml-->
+<view class='container' style='padding:15rpx;'>
+  <block wx:for="{{[1,2,3]}}" wx:for-item="i">
+    <block wx:for="{{[1,2,3]}}" wx:for-item="j">
+      <view wx:if="{{i <= j}}">
+        {{i}} * {{j}} = {{i*j}}
+      </view>
+    </block>
+  </block>    
+</view>
+
+
+<view class='container' style='padding:15rpx;'>
+  <view wx:for="{{users}}" wx:for-index="idx" wx:for-item="user">
+    <text>{{idx}} - {{user.name}} - {{user.age}}</text>
+  </view>
+</view>
+
+<import src="template.wxml" />
+<view class='container' style="padding:15rpx;">
+  <block wx:for="{{users}}">
+    <template is="userTemp" data="{{item}}" />
+  </block>
+</view>
+
+<!--
+<template name="userTemp">
+  <view class='user'>
+    <view>姓名: {{item.name}}</view>
+    <view>年龄: {{item.age}}</view>
+  </view>
+</template>
+-->
+
+<view id="tapTest" bindtap="tapName" data-org="test" data-level="2">Click Me!</view>

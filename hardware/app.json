@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/sysinfo/sysinfo",
+    "pages/networktype/networktype",
     "pages/location/location",
     "pages/record/record",
     "pages/photo/photo",

@@ -1,0 +1,20 @@
+<!--pages/sysinfo/sysinfo.wxml-->
+<view class='content'>
+  <view class='page__hd'>
+    <text class='page__title'>获取手机信息</text>
+  </view>
+
+  <view class='section'>
+    <button type='primary' bindtap='sysinfoTap'>获取手机信息</button>
+  </view>
+
+  <view class='nw_item'>
+    <view class='nw_title'>微信设置的语言：{{language}}</view>
+    <view class='nw_title'>手机型号：{{model}}</view>
+    <view class='nw_title'>设备像素比：{{pixelRatio}}</view>
+    <view class='nw_title'>微信平台：{{platform}}</view>
+    <view class='nw_title'>微信版本：{{version}}</view>
+    <view class='nw_title'>屏幕高度：{{windowHeight}}</view>
+    <view class='nw_title'>屏幕宽度：{{windowWidth}}</view>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/networktype/networktype.wxml-->
+
+<view class='content'>
+  <view class='page__hd'>
+    <text class='page__title'>手机网络状态</text>
+  </view>
+
+  <view class='section'>
+    <button type='primary' bindtap='networkTap'>查询</button>
+  </view>
+
+  <view class='nw_item'>
+    <view class='nw_title'>当前网络类型：{{network}}</view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class='content'>
+  <view class='info'>
+    <view class='city'>{{city}} ({{today}})</view>
+    <view class='temp'>{{weather.wendu}} ℃</view>
+    <view class='weather'>{{weather.ganmao}}</view>
+  </view>
+</view>

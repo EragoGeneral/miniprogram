@@ -122,8 +122,9 @@ Page({
           for(var i=0; i<weather.forecast.length; i++){
             var d = weather.forecast[i].date;
             weather.forecast[i].date  = ' '+d.replace('星期', '  星期');         
-            weather.forecast[i].fengli = weather.forecast[i].fengli.replace('<![CDATA[<', '').replace(']]>','');
+            weather.forecast[i].fengli = weather.forecast[i].fengli.replace(']]>', '').replace('<![CDATA[','');
           }
+          weather.yesterday.fl = weather.yesterday.fl.replace(']]>', '').replace('<![CDATA[', '');
           self.setData({
             city: cityName,
             weather:weather,

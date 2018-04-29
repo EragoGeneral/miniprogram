@@ -4,7 +4,7 @@
     <image src='{{board}}' />
   </view>
   <view class='songlist'>
-    <block wx:for='{{songlist}}' >
+    <block wx:for='{{songlist}}' wx:key='song_id' >
       <view class='songitem'>
         <navigator url='/pages/play/play?songid={{item.songid}}' class='song-play'>
           <image src='/images/play.png' />

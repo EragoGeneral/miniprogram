@@ -1,11 +1,42 @@
 // pages/search/search.js
+var config = require('../../config.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    value: '',
+    loading: false,
+    list: []
+  },
+
+  inputing: function(e){
+    this.setData({
+      value: e.detail.value
+    });
+  },
+
+  bindSearch: function(){
+    var self = this;
+    this.setData({
+      loading: !self.data.loading
+    });
+
+    wx.request({
+      url: config.config.searchByNameUrl,
+      data:{keyword:self.data.value},
+      success: function(e){
+        if(e.statusCode == 200){
+          self.setData({
+            list: e.data.showapi_res_body.pagebean.contentlist,
+            loading: !self.data.loading
+          });
+          wx.setStorageSync('songlist', e.data.showapi_res_body.pagebean.contentlist);
+        }
+      }
+    })
   },
 
   /**
